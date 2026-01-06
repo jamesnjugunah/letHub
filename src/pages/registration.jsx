@@ -656,7 +656,7 @@ export default function RegistrationPage() {
                 </path>
               </svg>
 
-              <button className="btn btn-primary" onClick={() => window.location.href = '/dashboard'}>
+              <button className="btn btn-primary" onClick={() => window.location.href = '/'}>
                 Go to Dashboard
               </button>
             </div>
