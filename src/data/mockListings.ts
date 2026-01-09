@@ -1,0 +1,266 @@
+export interface Listing {
+  id: string;
+  title: string;
+  location: string;
+  price: number;
+  priceUnit: 'month' | 'day' | 'week' | 'year';
+  category: 'housing' | 'vehicles' | 'short-stays' | 'land' | 'conference';
+  propertyType: string;
+  images: string[];
+  rating: number;
+  reviewCount: number;
+  bedrooms?: number;
+  bathrooms?: number;
+  size?: number;
+  sizeUnit?: 'sqft' | 'sqm' | 'acres';
+  maxGuests?: number;
+  amenities: string[];
+  isVerified: boolean;
+  isSuperhost?: boolean;
+  description: string;
+  ownerName: string;
+  ownerAvatar: string;
+  ownerResponseRate: number;
+  ownerResponseTime: string;
+  availableNow: boolean;
+  coordinates: { lat: number; lng: number };
+}
+
+export const mockListings: Listing[] = [
+  {
+    id: '1',
+    title: 'Modern 3BR Apartment with City Views',
+    location: 'Westlands, Nairobi',
+    price: 85000,
+    priceUnit: 'month',
+    category: 'housing',
+    propertyType: 'Apartment',
+    images: [
+      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800',
+      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800',
+      'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800',
+    ],
+    rating: 4.9,
+    reviewCount: 127,
+    bedrooms: 3,
+    bathrooms: 2,
+    size: 1800,
+    sizeUnit: 'sqft',
+    amenities: ['WiFi', 'Parking', 'Pool', 'Gym', 'Security', 'Generator'],
+    isVerified: true,
+    isSuperhost: true,
+    description: 'Experience luxury living in this stunning modern apartment featuring floor-to-ceiling windows with panoramic city views. The open-plan living area seamlessly connects to a gourmet kitchen with premium appliances.',
+    ownerName: 'James Mwangi',
+    ownerAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
+    ownerResponseRate: 98,
+    ownerResponseTime: 'within an hour',
+    availableNow: true,
+    coordinates: { lat: -1.2641, lng: 36.8032 },
+  },
+  {
+    id: '2',
+    title: 'Cozy Studio Near Shopping Mall',
+    location: 'Kilimani, Nairobi',
+    price: 35000,
+    priceUnit: 'month',
+    category: 'housing',
+    propertyType: 'Studio',
+    images: [
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800',
+      'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800',
+    ],
+    rating: 4.7,
+    reviewCount: 89,
+    bedrooms: 1,
+    bathrooms: 1,
+    size: 650,
+    sizeUnit: 'sqft',
+    amenities: ['WiFi', 'Parking', 'Security', 'Laundry'],
+    isVerified: true,
+    description: 'Perfect starter home or investment property. This well-maintained studio offers modern finishes and is walking distance to Yaya Centre.',
+    ownerName: 'Grace Wanjiku',
+    ownerAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
+    ownerResponseRate: 95,
+    ownerResponseTime: 'within 2 hours',
+    availableNow: true,
+    coordinates: { lat: -1.2864, lng: 36.7836 },
+  },
+  {
+    id: '3',
+    title: 'Toyota Land Cruiser V8 2022',
+    location: 'CBD, Nairobi',
+    price: 15000,
+    priceUnit: 'day',
+    category: 'vehicles',
+    propertyType: 'SUV',
+    images: [
+      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
+      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800',
+    ],
+    rating: 4.8,
+    reviewCount: 56,
+    amenities: ['4x4', 'GPS', 'Bluetooth', 'Sunroof', 'Leather Seats'],
+    isVerified: true,
+    description: 'Premium SUV perfect for safari adventures or executive travel. Well-maintained with full service history.',
+    ownerName: 'Peter Ochieng',
+    ownerAvatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100',
+    ownerResponseRate: 100,
+    ownerResponseTime: 'within 30 minutes',
+    availableNow: true,
+    coordinates: { lat: -1.2921, lng: 36.8219 },
+  },
+  {
+    id: '4',
+    title: 'Beachfront Villa with Private Pool',
+    location: 'Diani Beach, Mombasa',
+    price: 25000,
+    priceUnit: 'day',
+    category: 'short-stays',
+    propertyType: 'Villa',
+    images: [
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800',
+      'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800',
+      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
+    ],
+    rating: 5.0,
+    reviewCount: 234,
+    bedrooms: 4,
+    bathrooms: 3,
+    maxGuests: 8,
+    amenities: ['Private Pool', 'Beach Access', 'Chef', 'WiFi', 'AC', 'BBQ'],
+    isVerified: true,
+    isSuperhost: true,
+    description: 'Wake up to the sound of waves in this stunning beachfront villa. Features a private pool, direct beach access, and optional private chef.',
+    ownerName: 'Amina Hassan',
+    ownerAvatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
+    ownerResponseRate: 99,
+    ownerResponseTime: 'within an hour',
+    availableNow: false,
+    coordinates: { lat: -4.3167, lng: 39.5667 },
+  },
+  {
+    id: '5',
+    title: '5-Acre Agricultural Land',
+    location: 'Naivasha, Nakuru',
+    price: 500000,
+    priceUnit: 'year',
+    category: 'land',
+    propertyType: 'Agricultural',
+    images: [
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
+      'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800',
+    ],
+    rating: 4.6,
+    reviewCount: 18,
+    size: 5,
+    sizeUnit: 'acres',
+    amenities: ['Water Access', 'Road Access', 'Fenced', 'Title Deed'],
+    isVerified: true,
+    description: 'Prime agricultural land with rich volcanic soil. Perfect for farming or investment. Includes water rights and is fully fenced.',
+    ownerName: 'David Kimani',
+    ownerAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100',
+    ownerResponseRate: 92,
+    ownerResponseTime: 'within a day',
+    availableNow: true,
+    coordinates: { lat: -0.7167, lng: 36.4333 },
+  },
+  {
+    id: '6',
+    title: 'Executive Conference Room - 50 Pax',
+    location: 'Upper Hill, Nairobi',
+    price: 50000,
+    priceUnit: 'day',
+    category: 'conference',
+    propertyType: 'Conference Room',
+    images: [
+      'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800',
+      'https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=800',
+    ],
+    rating: 4.9,
+    reviewCount: 67,
+    maxGuests: 50,
+    amenities: ['Projector', 'Video Conferencing', 'Whiteboard', 'Catering', 'WiFi', 'AC'],
+    isVerified: true,
+    description: 'State-of-the-art conference facility with premium AV equipment. Ideal for corporate meetings, workshops, and seminars.',
+    ownerName: 'Sarah Njeri',
+    ownerAvatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100',
+    ownerResponseRate: 100,
+    ownerResponseTime: 'within an hour',
+    availableNow: true,
+    coordinates: { lat: -1.2997, lng: 36.8178 },
+  },
+  {
+    id: '7',
+    title: 'Luxury Penthouse with Rooftop Terrace',
+    location: 'Riverside, Nairobi',
+    price: 150000,
+    priceUnit: 'month',
+    category: 'housing',
+    propertyType: 'Penthouse',
+    images: [
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+    ],
+    rating: 4.95,
+    reviewCount: 42,
+    bedrooms: 4,
+    bathrooms: 4,
+    size: 3500,
+    sizeUnit: 'sqft',
+    amenities: ['Rooftop Terrace', 'Jacuzzi', 'Smart Home', 'Wine Cellar', 'Gym', '24/7 Security'],
+    isVerified: true,
+    isSuperhost: true,
+    description: 'Experience unparalleled luxury in this stunning penthouse featuring a private rooftop terrace with panoramic views of the city.',
+    ownerName: 'Michael Oduya',
+    ownerAvatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100',
+    ownerResponseRate: 100,
+    ownerResponseTime: 'within 30 minutes',
+    availableNow: true,
+    coordinates: { lat: -1.2736, lng: 36.7958 },
+  },
+  {
+    id: '8',
+    title: 'Mercedes S-Class Executive',
+    location: 'Westlands, Nairobi',
+    price: 20000,
+    priceUnit: 'day',
+    category: 'vehicles',
+    propertyType: 'Sedan',
+    images: [
+      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800',
+      'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=800',
+    ],
+    rating: 5.0,
+    reviewCount: 89,
+    amenities: ['Chauffeur Available', 'WiFi', 'Refrigerator', 'Leather Interior', 'Privacy Glass'],
+    isVerified: true,
+    description: 'Travel in style with this premium executive sedan. Perfect for business meetings, airport transfers, or special occasions.',
+    ownerName: 'Francis Muturi',
+    ownerAvatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100',
+    ownerResponseRate: 100,
+    ownerResponseTime: 'within 15 minutes',
+    availableNow: true,
+    coordinates: { lat: -1.2641, lng: 36.8032 },
+  },
+];
+
+export const categories = [
+  { id: 'housing', label: 'Housing', icon: '🏠', count: 1247 },
+  { id: 'vehicles', label: 'Vehicles', icon: '🚗', count: 423 },
+  { id: 'short-stays', label: 'Short Stays', icon: '🏨', count: 856 },
+  { id: 'land', label: 'Land', icon: '🌾', count: 312 },
+  { id: 'conference', label: 'Conference', icon: '🎯', count: 98 },
+];
+
+export const amenitiesList = [
+  { id: 'wifi', label: 'WiFi', icon: '📶' },
+  { id: 'parking', label: 'Parking', icon: '🅿️' },
+  { id: 'pool', label: 'Pool', icon: '🏊' },
+  { id: 'gym', label: 'Gym', icon: '💪' },
+  { id: 'ac', label: 'Air Conditioning', icon: '❄️' },
+  { id: 'security', label: '24/7 Security', icon: '🔒' },
+  { id: 'generator', label: 'Generator', icon: '⚡' },
+  { id: 'pet-friendly', label: 'Pet Friendly', icon: '🐕' },
+  { id: 'laundry', label: 'Laundry', icon: '🧺' },
+  { id: 'kitchen', label: 'Kitchen', icon: '🍳' },
+];
